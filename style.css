@@ -17,7 +17,7 @@ body{
     height: 200px;
     margin: 0 auto;
     margin-top: 30px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: 5px 5px 15px   rgb(0, 0, 0, 0.50) ;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,6 +50,19 @@ label{
     margin: 5px 5px 5px 0px;
     border-radius: 5px;
 }
+#empty{
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 15px;
+    color: #ec0707;
+}
+
+#message{
+    position: absolute;
+    margin-left: 560px;
+    padding: 10px;
+    color: #ec0707;
+}
 
 button{
     padding: 6pxpx;
@@ -75,15 +88,15 @@ button:hover{
     margin-left: 200px;
 }
 .history{
-    
+    visibility: hidden;
     background-color: #8EC5FC;
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
     width: 500px;
-    height: 200px;
+    
     margin: 0 auto;
     margin-top: 30px;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: 5px 5px 15px   rgb(0, 0, 0, 0.50) ;
 }
 .history > h3{
     text-align: center;
@@ -91,3 +104,44 @@ button:hover{
     color: rgb(67, 12, 12);
 }
 
+.error{
+    animation: shake 0.1s linear 10;
+}
+@keyframes shake{
+    0%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(-2px);
+    }
+    50%{
+        transform: translateX(0);
+    }
+    75%{
+        transform: translateX(2px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+.lists{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F1F3F4;
+    color: #40a3f8;
+    padding: 0.5rem;
+    border-radius: 0.6rem;
+    margin: 1rem 0; 
+}
+
+.btn{
+    border: none;
+    border-radius: 0.6rem;
+    padding: 0.5rem;
+    background-color: orange;
+    color: white;
+    transition: all 0.3s;
+    cursor: pointer;
+}
