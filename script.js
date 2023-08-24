@@ -12,9 +12,7 @@ const historyButton = document.querySelector("#historyButton")
 const history = document.querySelector(".history")
 const ul = document.querySelector("#lists")
 
-createUrl = (url) =>{
-    result.innerText = url
-}
+
 
 
 submit.addEventListener('click',()=>{
@@ -61,10 +59,23 @@ createTodo = (todo)=>{
     deleteButton.addEventListener('click',deleteTodo)
 }
 
-
 const getTodosFromLocalStorage = () =>{
     return localStorage.getItem("myTodos") ? JSON.parse(localStorage.getItem("myTodos")) : [];
 }
+
+createUrl = (url) =>{
+    result.innerText = url
+    let todoId =  Date.now().toString();
+        let todoValue = url
+        let newTodo = [todoId,todoValue]
+        createTodo(newTodo)
+        let todos = getTodosFromLocalStorage();
+        todos.push(newTodo)  
+        localStorage.setItem('myTodos',JSON.stringify(todos))
+}
+
+
+
 
 deleteTodo = (event) =>{ 
     const selectedTodo = event.target.parentElement.parentElement.parentElement
@@ -91,13 +102,7 @@ copy.addEventListener('click',()=>{
         // Copy the text inside the text field
         navigator.clipboard.writeText(copyText);
 
-        let todoId =  Date.now().toString();
-        let todoValue = copyText
-        let newTodo = [todoId,todoValue]
-        createTodo(newTodo)
-        let todos = getTodosFromLocalStorage();
-        todos.push(newTodo)  
-        localStorage.setItem('myTodos',JSON.stringify(todos))
+        
    }
    
 })
