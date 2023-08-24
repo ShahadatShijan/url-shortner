@@ -66,14 +66,11 @@ const getTodosFromLocalStorage = () =>{
     return localStorage.getItem("myTodos") ? JSON.parse(localStorage.getItem("myTodos")) : [];
 }
 
-deleteTodo = (event) =>{
-    
+deleteTodo = (event) =>{ 
     const selectedTodo = event.target.parentElement.parentElement.parentElement
     ul.removeChild(selectedTodo);
-    console.log(selectedTodo.id)
     let localTodo = getTodosFromLocalStorage();
     localTodo = localTodo.filter((todo) => todo[0] != selectedTodo.id);
-    console.log(localTodo)
     localStorage.setItem("myTodos", JSON.stringify(localTodo));
     
 }
